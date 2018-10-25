@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'NewsController@index')->name('news.index');
+Route::resource('news', 'NewsController', ['except' => 'index']);
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
